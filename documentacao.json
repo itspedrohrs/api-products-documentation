@@ -1,0 +1,489 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Documentation Api System products and categories",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://serve.teste/api-products/v1"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Product"
+    },
+    {
+      "name": "Category"
+    }
+  ],
+  "paths": {
+    "/products": {
+      "get": {
+        "tags": [
+          "Product"
+        ],
+        "description": "List all products in save database",
+        "responses": {
+          "200": {
+            "description": "Return all products save in database",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Products"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Login não autorizado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/responses/Erro"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro de servidor",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/responses/Erro"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Product"
+        ],
+        "description": "Create new products",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateProduct"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Product created with success !"
+          },
+          "401": {
+            "$ref": "#/components/responses/Erro"
+          },
+          "500": {
+            "$ref": "#/components/responses/Erro"
+          }
+        }
+      }
+    },
+    "/products/{id}": {
+      "get": {
+        "tags": [
+          "Product"
+        ],
+        "description": "search for specific product by id",
+        "responses": {
+          "200": {
+            "description": "Return all products save in database",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Products"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Login não autorizado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/responses/Erro"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro de servidor",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/responses/Erro"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Product"
+        ],
+        "description": "delete for product by id",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateProduct"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Return all products save in database",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Products"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Login não autorizado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/responses/Erro"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro de servidor",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/responses/Erro"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Product"
+        ],
+        "description": "delete for product by id",
+        "responses": {
+          "200": {
+            "description": "Return all products save in database",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Products"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Login não autorizado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/responses/Erro"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro de servidor",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/responses/Erro"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/categories": {
+      "get": {
+        "tags": [
+          "Category"
+        ],
+        "responses": {
+          "200": {
+            "description": "Return all categories save in database",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Categories"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/Erro"
+          },
+          "500": {
+            "$ref": "#/components/responses/Erro"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Category"
+        ],
+        "description": "Create new categories",
+        "responses": {
+          "200": {
+            "description": "Category create with success !!! ",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateCategory"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/Erro"
+          },
+          "500": {
+            "$ref": "#/components/responses/Erro"
+          }
+        }
+      }
+    },
+    "/categories/{id}": {
+      "get": {
+        "tags": [
+          "Category"
+        ],
+        "description": "Return for category specific",
+        "responses": {
+          "200": {
+            "description": "Return for category specific by id",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Categories"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/Erro"
+          },
+          "500": {
+            "$ref": "#/components/responses/Erro"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Category"
+        ],
+        "description": "update category",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateCategory"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "update for category specific by id",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Categories"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/Erro"
+          },
+          "500": {
+            "$ref": "#/components/responses/Erro"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Category"
+        ],
+        "description": "delete category",
+        "responses": {
+          "200": {
+            "description": "delete for category by id",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Categories"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/Erro"
+          },
+          "500": {
+            "$ref": "#/components/responses/Erro"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "responses": {
+      "Erro": {
+        "description": "Não foi possível realizar a requisição",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Erro"
+            }
+          }
+        }
+      }
+    },
+    "schemas": {
+      "Product": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "example": "1"
+          },
+          "name": {
+            "type": "string",
+            "example": "Arroz Tio João"
+          },
+          "price": {
+            "type": "string",
+            "example": "2.90"
+          },
+          "estoque": {
+            "type": "number",
+            "example": 3
+          },
+          "category": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer",
+                "example": 1
+              },
+              "name": {
+                "type": "string",
+                "example": "Alimento"
+              }
+            }
+          }
+        }
+      },
+      "Products": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/Product"
+        }
+      },
+      "CreateProduct": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "Arozz Branco Tia Maria"
+          },
+          "price": {
+            "type": "number",
+            "example": "3.00"
+          },
+          "estoque": {
+            "type": "number",
+            "example": 4
+          },
+          "id_category": {
+            "type": "number",
+            "example": 1
+          }
+        }
+      },
+      "UpdateProduct": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "Arroz Tio Zé"
+          },
+          "price": {
+            "type": "string",
+            "description": "3.99"
+          },
+          "estoque": {
+            "type": "number",
+            "example": "5"
+          },
+          "id_category": {
+            "type": "number",
+            "example": 1
+          }
+        }
+      },
+      "Category": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "example": "1"
+          },
+          "name": {
+            "type": "string",
+            "example": "Alimento"
+          }
+        }
+      },
+      "Categories": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/Category"
+        }
+      },
+      "CreateCategory": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "Limpeza"
+          }
+        }
+      },
+      "UpdateCategory": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "Limpeza"
+          }
+        }
+      },
+      "Erro": {
+        "type": "object",
+        "properties": {
+          "mensagem": {
+            "type": "string",
+            "example": "Not found resquest ! "
+          }
+        }
+      }
+    }
+  }
+}
